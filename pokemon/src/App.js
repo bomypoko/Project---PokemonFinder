@@ -70,7 +70,7 @@ export default class App extends Component {
             <img src= {`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.state.pokemon.id}.png`} className='pokepic' alt=""/>
             <h2 className='pokemon-name-title'>{this.state.pokemon.name}</h2>
 
-            <h5> {this.state.pokemon.weight}</h5>
+            <h5> Weight {this.state.pokemon.weight}</h5>
 
             <ul>
               {this.state.pokemon.abilities.map(abil => (
