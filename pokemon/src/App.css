@@ -4,6 +4,10 @@ form {
   height: 100vh;
   width: 100vw;
   background-color: #282c34;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(https://pbs.twimg.com/media/EqLqA4kW4AMdZb3.jpg);
  
 }
 
@@ -19,4 +23,20 @@ h1 {
   margin: 0;
   box-sizing: border-box;
   
+  
+}
+
+
+.pokename {
+  background-color: white;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.pokepic{
+  background-color: aliceblue;
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 5px;
 }

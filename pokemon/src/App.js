@@ -17,9 +17,6 @@ export default class App extends Component {
     this.getPokemon()
   }
 
-
-
-
   getPokemon = async () => {
     try {
 
@@ -40,14 +37,33 @@ export default class App extends Component {
     }
   }
 
+  handlerChange = e => {
+    this.setState ({
+      query: e.target.value
+    })
+  }
+
+  handlerSummit = e => {
+    e.preventDefault()
+    this.getPokemon()
+  }
+
   render() {
+
+    console.log(this.state.query)
+
     return (
-      
-      
-      <form>
+
+      <form onSubmit={this.handlerSummit}>
 
       <h1>Pokemon Finder Application</h1>
-
+      <input type="text" value={this.state.query} onChange={this.handlerChange} />
+      <input type="submit" value="Search"/>
+      <br />
+      <img src= {`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.state.pokemon.id}.png`} className='pokepic' alt=""/>
+      <br/>
+      <h2 className='pokename'> {this.state.pokemon.name} </h2>
+      
       </form>
     )
   }
