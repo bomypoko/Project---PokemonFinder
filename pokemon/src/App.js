@@ -1,25 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react'
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      query: "eevee",
+      pokemon: "",
+      err: ""
+    }
+
+  }
+
+  componentDidMount() {
+    this.getPokemon()
+  }
+
+
+
+
+  getPokemon = async () => {
+    try {
+
+      const res = await fetch (`https://pokeapi.co/api/v2/pokemon/${this.state.query.toLowerCase()}`)
+      const data = await res.json()
+      console.log(data)
+
+      this.setState ({
+        pokemon: data,
+        err: null
+      })
+
+    }catch(err) {
+      this.setState({
+        pokemon: null,
+        err
+      })
+    }
+  }
+
+  render() {
+    return (
+      
+      
+      <form>
+
+      <h1>Pokemon Finder Application</h1>
+
+      </form>
+    )
+  }
+
+
 }
 
-export default App;
